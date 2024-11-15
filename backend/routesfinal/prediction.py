@@ -2,7 +2,10 @@ from flask import Blueprint, request, jsonify
 import pandas as pd
 import os
 from werkzeug.utils import secure_filename
-from Food_Nutrition_Analysis import FoodNutritionModel  # Import the class from Food_Nutrition_Analysis.py
+from models.Food_Nutrition_Analysis import FoodNutritionModel
+
+
+  # Import the class from Food_Nutrition_Analysis.py
 
 # Create a blueprint for the prediction routes
 prediction_blueprint = Blueprint('prediction', __name__)
