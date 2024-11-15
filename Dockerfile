@@ -1,10 +1,15 @@
-FROM python:3.9-slim
+# Use a Python base image
+FROM python:3.9
 
-WORKDIR /app
-COPY . /app
+# Set the working directory to /app/backend
+WORKDIR /app/backend
 
-# Upgrade pip and install dependencies
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy the backend directory to the container
+COPY backend /app/backend
+COPY requirements.txt /app
 
+# Install dependencies
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+# Run the application
 CMD ["python", "app.py"]
